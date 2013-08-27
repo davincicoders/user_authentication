@@ -21,4 +21,9 @@ class SessionsController < ApplicationController
       redirect_to :login, notice: "Invalid Username or Password"
     end
   end
+
+  def destroy
+    session.delete(:user_id)
+    redirect_to root_path, notice: "You've been logged out."
+  end
 end
